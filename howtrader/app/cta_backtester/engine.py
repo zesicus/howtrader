@@ -89,7 +89,7 @@ class BacktesterEngine(BaseEngine):
                     strategy_module_name = ".".join(
                         [module_name, filename.split(".")[0]])
                     self.load_strategy_class_from_module(strategy_module_name)
-        print(f'------- 第一次加载调用结束\n')
+        print(f'------- 加载调用结束\n')
 
     def load_strategy_class_from_module(self, module_name: str):
         """

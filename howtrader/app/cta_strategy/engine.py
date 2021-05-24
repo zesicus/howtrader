@@ -755,11 +755,14 @@ class CtaEngine(BaseEngine):
         """
         Load strategy class from certain folder.
         """
+        print(f'------- 加载策略文件夹：{path}, module name: {module_name}')
         for dirpath, dirnames, filenames in os.walk(str(path)):
+            print(f'加载遍历：文件夹：{dirpath}, dirnames: {dirnames}, 文件名：{filenames}')
             for filename in filenames:
                 if filename.split(".")[-1] in ("py", "pyd", "so"):
                     strategy_module_name = ".".join([module_name, filename.split(".")[0]])
                     self.load_strategy_class_from_module(strategy_module_name)
+        print(f'------- 加载调用结束\n')
 
     def load_strategy_class_from_module(self, module_name: str):
         """
